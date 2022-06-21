@@ -18,7 +18,7 @@ class redes:
         # self.name.focus()
         # self.name.grid(row = 1, column = 1)
         # ttk.Button(frame, text = 'Buscar', command='' ).grid(row = 3, columnspan = 2, sticky = W + E , padx=10 , pady=10)
-        self.message = Label(text = '', fg = 'red')
+        self.message = Label(text = '', fg = 'blue')
         self.message.grid(row = 3, column = 0, columnspan = 2, sticky = W + E)
         self.tree = ttk.Treeview(height = 10, columns = 2 )
         self.tree.grid(row = 2, column = 0, columnspan = 2 , padx=15 )
