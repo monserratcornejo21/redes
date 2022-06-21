@@ -35,5 +35,3 @@ class redes:
         self2.resizable(0,0)
         self2.title('Redaccion Correo')
         self2.eval('tk::PlaceWindow . center')
-        
-

@@ -3,6 +3,7 @@ import socket
 
 #establecemos una funcion para manejar la cantidad de bits que tendra el mensaje, transformacion de 16 a 8 y viceversa
 def enviar(conexion,men):
+    print(men)
     msg = men + '\n'
     conexion.send(msg.encode())
 
@@ -11,7 +12,7 @@ def recibir(conexion):
     print(msg.decode())
 #establecemos variables
 
-host = "taller2.localhost"
+host = '192.168.0.24'
 port = 25
 ipv4 = socket.AF_INET
 tcp  = socket.SOCK_STREAM
@@ -22,17 +23,17 @@ with socket.socket(ipv4,tcp) as conexion:
 
     conexion.connect((host, port))
     recibir(conexion)
-    enviar(conexion,'HELLO')
+    enviar(conexion,'HELO')
     recibir(conexion)
-    enviar(conexion,'MAIL FROM: {}'.format(host))
+    enviar(conexion,'MAIL FROM: monserratcornejo@gmail.com')
     recibir(conexion)
-    enviar(conexion,'RCPT TO: {}'.format(user))
+    enviar(conexion,'RCPT TO: monserrat.cornejo.c@mail.pucv.cl')
     recibir(conexion)
     enviar(conexion,'DATA')
     recibir(conexion)
     enviar(conexion,'Subject: muestra script en python')
-    enviar(conexion,'From:',host)
-    enviar(conexion,'To: ',user)
+    #enviar(conexion,'From:'+host)
+    #enviar(conexion,'To: '+user)
     enviar(conexion,'')
     enviar(conexion,'muestra en python')
     enviar(conexion,'cualquier cosa como mensaje......')

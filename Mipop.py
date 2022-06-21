@@ -4,7 +4,7 @@ import socket
 #establecemos una funcion y variables 
 def listar_correo(user, passwd):
 
-    host = "ayredes.ddns.net"
+    host = '192.168.0.24'
     port = 110
     ipv4 = socket.AF_INET
     tcp  = socket.SOCK_STREAM
@@ -37,7 +37,6 @@ def listar_correo(user, passwd):
 
 #establecemos una funcion 
 def operaciones(opcion,numero_email):
-
     #al cliente le daremos 3 opciones por pantalla, con las cuales podra ver o eliminar un mensaje; ademas de salir de la lista 
     while True:
 
