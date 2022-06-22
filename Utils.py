@@ -28,7 +28,7 @@ class redes:
         
         frame1 = LabelFrame(window)
         frame1.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W)
-        Label(frame1,text='From'+'     ').grid(row = 0, column = 0 , padx=(0,15))
+        Label(frame1,text='From'+'     '+self.mail).grid(row = 0, column = 0 , padx=(0,15))
         
         frame2 = LabelFrame(window)
         frame2.grid(row = 1, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
@@ -53,7 +53,7 @@ class redes:
         ttk.Button(window,text = 'Enviar', command = self.enviarcorreo).grid(row = 4, column = 1, sticky = W + E ,  padx=10 , pady=(8,8))   
     
     def enviarcorreo(self): 
-        print(self.Mail.get(),self.To.get(),self.Subject.get(),self.Messaje.get())
+        print(self.mail,self.To.get(),self.Subject.get(),self.Messaje.get())
         #Mismtp(self.From.get(),self.To.get(),self.Subject.get(),self.Messaje.get())
          
     def login(self,window):
@@ -63,9 +63,9 @@ class redes:
         frame = LabelFrame(window)
         frame.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
         Label(frame,text='Correo').grid(row = 1, column = 0 )
-        self.Mail = Entry(frame,width=35)
-        self.Mail.focus()
-        self.Mail.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        self.Mail2 = Entry(frame,width=35)
+        self.Mail2.focus()
+        self.Mail2.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
         
         frame2 = LabelFrame(window)
         frame2.grid(row = 1, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
@@ -80,7 +80,8 @@ class redes:
             
     def MenuP(self):
        
-        self.password=self.wind.Pass.get()
+        # self.password=self.wind.Pass.get()
+        self.mail=self.Mail2.get()
         self.wind.destroy()
         window=Tk()
         window.title('Gmailnt')
