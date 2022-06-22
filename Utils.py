@@ -8,10 +8,7 @@ from tkinter import ttk
 # from tkinter import _ScreenUnits
 from tkinter.tix import ROW
 from turtle import width
-#from mysqlx import Row
-# from Pop3 import IniciarSesion
-
-#from numpy import insert
+from Mismtp import *
 
 
 class redes:
@@ -43,20 +40,21 @@ class redes:
         frame3 = LabelFrame(window)
         frame3.grid(row = 2, column = 0, columnspan = 2, pady=5 , padx=5 , sticky=W+E)
         Label(frame3,text='Subject').grid(row = 1, column = 0 )
-        window.Subject = Entry(frame3,width=100)
-        window.Subject.grid(row = 1, column = 1 , padx=15 , pady=5 ,sticky=W+E)
+        self.Subject = Entry(frame3,width=100)
+        self.Subject.grid(row = 1, column = 1 , padx=15 , pady=5 ,sticky=W+E)
         
         frame4 = LabelFrame(window)
         frame4.grid(row = 3, column = 0, columnspan = 2, pady = 5 , sticky=W+E , padx=5)
         Label(frame4).grid(row = 1, column = 0 )
-        window.Messaje = Entry(frame4 ,width=110)
-        window.Messaje.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        self.Messaje = Entry(frame4 ,width=110)
+        self.Messaje.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
         
         ttk.Button(window,text = 'Descartar', command = window.destroy).grid(row = 4, column = 0, sticky = W + E , padx=10 , pady=(8,8))
-        ttk.Button(window,text = 'Enviar', command = window.enviarcorreo).grid(row = 4, column = 1, sticky = W + E ,  padx=10 , pady=(8,8))   
+        ttk.Button(window,text = 'Enviar', command = self.enviarcorreo).grid(row = 4, column = 1, sticky = W + E ,  padx=10 , pady=(8,8))   
+    
     def enviarcorreo(self):
-        
-        
+        Mismtp('','',self.Subject.get(),self.Messaje.get())
+         
     def login(self,window):
         
         window.title('Iniciar Sesion')
