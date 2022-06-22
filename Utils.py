@@ -54,7 +54,7 @@ class redes:
     
     def enviarcorreo(self): 
         print(self.mail,self.To.get(),self.Subject.get(),self.Messaje.get())
-        #Mismtp(self.From.get(),self.To.get(),self.Subject.get(),self.Messaje.get())
+        Mismtp(self.mail,self.To.get(),self.Subject.get(),self.Messaje.get())
          
     def login(self,window):
         

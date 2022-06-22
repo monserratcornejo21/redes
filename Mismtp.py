@@ -11,8 +11,9 @@ def recibir(conexion):
     msg = conexion.recv(1024)
     print(msg.decode())
 #establecemos variables
+
 def Mismtp(From,to,Subject,Message):
-    host = '192.168.0.24'
+    host = '192.168.43.127'
     port = 25
     ipv4 = socket.AF_INET
     tcp  = socket.SOCK_STREAM
@@ -25,13 +26,13 @@ def Mismtp(From,to,Subject,Message):
         recibir(conexion)
         enviar(conexion,'HELO')
         recibir(conexion)
-        enviar(conexion,'MAIL FROM: ',From)
+        enviar(conexion,'MAIL FROM: '+From)
         recibir(conexion)
-        enviar(conexion,'RCPT TO: ',to)
+        enviar(conexion,'RCPT TO: '+to)
         recibir(conexion)
         enviar(conexion,'DATA')
         recibir(conexion)
-        enviar(conexion,'Subject: ',Subject)
+        enviar(conexion,'Subject: '+Subject)
         enviar(conexion,'From:'+From)
         enviar(conexion,'To: '+to)
         enviar(conexion,'')
@@ -40,3 +41,6 @@ def Mismtp(From,to,Subject,Message):
         enviar(conexion,'.')
         recibir(conexion)
         enviar(conexion,'quit')
+
+
+Mismtp('mmonserratcornejo@gmail.com','mmonserratcornejo@gmail.com','aa','qww')
