@@ -2,6 +2,7 @@
 from cgitb import text
 from tkinter import *
 from tkinter import ttk
+from turtle import heading
 
 
 class redes:
@@ -35,3 +36,30 @@ class redes:
         self2.resizable(0,0)
         self2.title('Redaccion Correo')
         self2.eval('tk::PlaceWindow . center')
+        self2.geometry('400x400')
+        lbl = ttk.Label(self2, text="Correo")
+        lbl.pack()
+        lbl = ttk.Label(self2, text="Mail from:")
+        lbl.pack()
+
+        txt = ttk.Entry(self2,width=50)
+        txt.pack()
+
+        lbl = ttk.Label(self2, text="Recep to:")
+        lbl.pack()
+
+        txt = ttk.Entry(self2,width=50)
+        txt.pack()
+
+        lbl = ttk.Label(self2, text="Subject:")
+        lbl.pack()
+
+        txt = ttk.Entry(self2,width=50)
+        txt.pack()
+
+
+        lbl = ttk.Label(self2, text="Cuerpo del mensaje")
+        lbl.pack()
+
+        txt = ttk.Entry(self2, width=50)
+        txt.pack()
