@@ -12,7 +12,7 @@ from Mismtp import *
 
 
 class redes:
-    mail=''
+
     password=''
     def __init__(self,window):  
         self.wind=window
@@ -27,15 +27,15 @@ class redes:
         window.eval('tk::PlaceWindow . center')
         
         frame1 = LabelFrame(window)
-        Label(frame1,text='From'+'     '+self.mail).grid(row = 1, column = 0 , padx=(0,15))
-        frame1.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=(5) , sticky=W)
+        frame1.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W)
+        Label(frame1,text='From'+'     ').grid(row = 0, column = 0 , padx=(0,15))
         
         frame2 = LabelFrame(window)
         frame2.grid(row = 1, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
         Label(frame2,text='To').grid(row = 1, column = 0 )
-        window.To = Entry(frame2,width=104)
-        window.To.focus()
-        window.To.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        self.To = Entry(frame2,width=104)
+        self.To.focus()
+        self.To.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
         
         frame3 = LabelFrame(window)
         frame3.grid(row = 2, column = 0, columnspan = 2, pady=5 , padx=5 , sticky=W+E)
@@ -52,8 +52,9 @@ class redes:
         ttk.Button(window,text = 'Descartar', command = window.destroy).grid(row = 4, column = 0, sticky = W + E , padx=10 , pady=(8,8))
         ttk.Button(window,text = 'Enviar', command = self.enviarcorreo).grid(row = 4, column = 1, sticky = W + E ,  padx=10 , pady=(8,8))   
     
-    def enviarcorreo(self):
-        Mismtp('','',self.Subject.get(),self.Messaje.get())
+    def enviarcorreo(self): 
+        print(self.Mail.get(),self.To.get(),self.Subject.get(),self.Messaje.get())
+        #Mismtp(self.From.get(),self.To.get(),self.Subject.get(),self.Messaje.get())
          
     def login(self,window):
         
@@ -62,9 +63,9 @@ class redes:
         frame = LabelFrame(window)
         frame.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
         Label(frame,text='Correo').grid(row = 1, column = 0 )
-        window.Mail = Entry(frame,width=35)
-        window.Mail.focus()
-        window.Mail.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        self.Mail = Entry(frame,width=35)
+        self.Mail.focus()
+        self.Mail.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
         
         frame2 = LabelFrame(window)
         frame2.grid(row = 1, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
@@ -78,7 +79,7 @@ class redes:
         ttk.Button(window,text = 'Entrar', command =self.MenuP).grid(row = 4, column = 0, columnspan=5,sticky = W + E , padx=10 , pady=(8,8))
             
     def MenuP(self):
-        self.mail=self.wind.Mail.get()
+       
         self.password=self.wind.Pass.get()
         self.wind.destroy()
         window=Tk()
