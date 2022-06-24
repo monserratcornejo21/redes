@@ -3,6 +3,8 @@ from ast import Pass
 from cProfile import label
 from cgitb import text
 from cmath import e
+from operator import index
+from re import I
 from time import sleep
 from tkinter import *
 from tkinter import ttk
@@ -10,6 +12,7 @@ from tkinter import ttk
 from tkinter.tix import ROW
 from turtle import width
 from Mismtp import *
+from Mipop import *
 # from Mipop import listar_correo
 
 
@@ -105,17 +108,28 @@ class redes:
         window.tree.grid(row = 2, column = 0, columnspan = 2 , padx=15 )
         window.tree.heading('#0', text = '', anchor = CENTER)
         window.tree.heading('#1', text = '', anchor = CENTER )
-        
+        self.wind2=window
         # ttk.Button(frame, text = 'Agregar', command= self.actualizarCorreo ).grid(row = 3, columnspan = 2, sticky = W + E , padx=10 , pady=10)
         ttk.Button(text = 'Actualizar', command = self.actualizarCorreo).grid(row = 4, column = 0, sticky = W + E ,  padx=10 , pady=(0,15))
         ttk.Button(text = 'Redactar Correo', command = self.RedaccionCorreo).grid(row = 4, column = 1, sticky = W + E , padx=10 , pady=(0,15))
 
     
     def actualizarCorreo(self):
-        # correos=listar_correo(self.mail,self.password)
+        num=1
+        self.wind2.tree.delete(*self.wind2.tree.get_children())
+        correos=listar_correo(self.mail,self.password).split('\n')
         # print(correos)
-        print('eo')
-        # self.tree.insert('', 0 , text='Eo',values=self.name.get())
+        for correo in correos:
+            # print(index)
+            if num==2:
+                correoPart=correo.split(' ')
+                print(correoPart)
+                try:
+                    self.wind2.tree.insert('', 0 , text=correoPart[0],values=correoPart[1])
+                except Exception as e:
+                    print(e)
+            num=2
         
     def d(self):
         self.tree.insert('', 0 , text='Eo',values=self.name.get())
+        
