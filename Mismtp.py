@@ -13,7 +13,7 @@ def recibir(conexion):
 #establecemos variables
 
 def Mismtp(From,to,Subject,Message):
-    host = '192.168.1.81'
+    host = '192.168.0.24'
     port = 25
     ipv4 = socket.AF_INET
     tcp  = socket.SOCK_STREAM

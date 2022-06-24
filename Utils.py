@@ -62,8 +62,7 @@ class redes:
     
     def enviarcorreo(self): 
         Mismtp(self.mail,self.To.get(),self.Subject.get(),self.Messaje.get())
-        sleep(3)
-        self.wind2.destroy()
+        
          
     def login(self,window):
         
