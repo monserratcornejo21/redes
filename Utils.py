@@ -3,17 +3,19 @@ from ast import Pass
 from cProfile import label
 from cgitb import text
 from cmath import e
+from time import sleep
 from tkinter import *
 from tkinter import ttk
 # from tkinter import _ScreenUnits
 from tkinter.tix import ROW
 from turtle import width
 from Mismtp import *
+# from Mipop import listar_correo
 
 
 class redes:
-
-    password=''
+    # mail=''
+    # password=''
     def __init__(self,window):  
         self.wind=window
         self.login(self.wind)
@@ -25,6 +27,8 @@ class redes:
         window.resizable(0,0)
         window.title('Redaccion Correo')
         window.eval('tk::PlaceWindow . center')
+        
+        self.wind2=window
         
         frame1 = LabelFrame(window)
         frame1.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W)
@@ -53,8 +57,9 @@ class redes:
         ttk.Button(window,text = 'Enviar', command = self.enviarcorreo).grid(row = 4, column = 1, sticky = W + E ,  padx=10 , pady=(8,8))   
     
     def enviarcorreo(self): 
-        print(self.mail,self.To.get(),self.Subject.get(),self.Messaje.get())
         Mismtp(self.mail,self.To.get(),self.Subject.get(),self.Messaje.get())
+        sleep(3)
+        self.wind2.destroy()
          
     def login(self,window):
         
@@ -63,15 +68,15 @@ class redes:
         frame = LabelFrame(window)
         frame.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
         Label(frame,text='Correo').grid(row = 1, column = 0 )
-        self.Mail2 = Entry(frame,width=35)
-        self.Mail2.focus()
-        self.Mail2.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        self.Mail = Entry(frame,width=35)
+        self.Mail.focus()
+        self.Mail.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
         
         frame2 = LabelFrame(window)
         frame2.grid(row = 1, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
         Label(frame2,text='Pass').grid(row = 1, column = 0 )
-        window.Pass = Entry(frame2,width=37)
-        window.Pass.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        self.Pass = Entry(frame2,width=37)
+        self.Pass.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
         
         # self.mail=window.Mail.get()
         # self.password=window.Pass.get()
@@ -81,7 +86,8 @@ class redes:
     def MenuP(self):
        
         # self.password=self.wind.Pass.get()
-        self.mail=self.Mail2.get()
+        self.mail=self.Mail.get()
+        self.password=self.Pass.get()
         self.wind.destroy()
         window=Tk()
         window.title('Gmailnt')
@@ -97,16 +103,19 @@ class redes:
         window.message.grid(row = 3, column = 0, columnspan = 2, sticky = W + E)
         window.tree = ttk.Treeview(height = 10, columns = 2 )
         window.tree.grid(row = 2, column = 0, columnspan = 2 , padx=15 )
-        window.tree.heading('#0', text = 'Emisor', anchor = CENTER)
-        window.tree.heading('#1', text = 'Mensaje', anchor = CENTER )
+        window.tree.heading('#0', text = '', anchor = CENTER)
+        window.tree.heading('#1', text = '', anchor = CENTER )
         
         # ttk.Button(frame, text = 'Agregar', command= self.actualizarCorreo ).grid(row = 3, columnspan = 2, sticky = W + E , padx=10 , pady=10)
-        ttk.Button(text = 'Actualizar', command = '').grid(row = 4, column = 0, sticky = W + E ,  padx=10 , pady=(0,15))
+        ttk.Button(text = 'Actualizar', command = self.actualizarCorreo).grid(row = 4, column = 0, sticky = W + E ,  padx=10 , pady=(0,15))
         ttk.Button(text = 'Redactar Correo', command = self.RedaccionCorreo).grid(row = 4, column = 1, sticky = W + E , padx=10 , pady=(0,15))
 
     
     def actualizarCorreo(self):
-        self.tree.insert('', 0 , text='Eo',values=self.name.get())
+        # correos=listar_correo(self.mail,self.password)
+        # print(correos)
+        print('eo')
+        # self.tree.insert('', 0 , text='Eo',values=self.name.get())
         
     def d(self):
         self.tree.insert('', 0 , text='Eo',values=self.name.get())

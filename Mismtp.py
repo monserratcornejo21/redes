@@ -41,6 +41,3 @@ def Mismtp(From,to,Subject,Message):
         enviar(conexion,'.')
         recibir(conexion)
         enviar(conexion,'quit')
-
-
-Mismtp('mmonserratcornejo@gmail.com','mmonserratcornejo@gmail.com','aa','qww')
