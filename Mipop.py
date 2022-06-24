@@ -1,17 +1,17 @@
 # importamos funciones socket 
 import socket
+host = "192.168.0.24"
+port = 110
+ipv4 = socket.AF_INET
+tcp  = socket.SOCK_STREAM
 
+conexion = socket.socket(ipv4, tcp)
+conexion.connect((host, port))
+respuesta = conexion.recv(1024).decode()
 #establecemos una funcion y variables 
 def listar_correo(user, passwd):
 
-    host = "192.168.0.24"
-    port = 110
-    ipv4 = socket.AF_INET
-    tcp  = socket.SOCK_STREAM
-
-    conexion = socket.socket(ipv4, tcp)
-    conexion.connect((host, port))
-    respuesta = conexion.recv(1024).decode()
+   
     #print(respuesta)
 
     # funcion USER en el cual el cliente ingresara su dato de usuario en sistema
