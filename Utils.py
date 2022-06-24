@@ -1,5 +1,6 @@
 
 from ast import Pass
+from asyncio.windows_events import NULL
 from cProfile import label
 from cgitb import text
 from cmath import e
@@ -116,14 +117,16 @@ class redes:
     
     def actualizarCorreo(self):
         num=1
+        correo=NULL
         self.wind2.tree.delete(*self.wind2.tree.get_children())
         correos=listar_correo(self.mail,self.password).split('\n')
+        print(correos)
         # print(correos)
         for correo in correos:
             # print(index)
             if num==2:
                 correoPart=correo.split(' ')
-                print(correoPart)
+                # print(correoPart)
                 try:
                     self.wind2.tree.insert('', 0 , text=correoPart[0],values=correoPart[1])
                 except Exception as e:
