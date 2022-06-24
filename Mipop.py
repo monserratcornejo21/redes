@@ -4,7 +4,7 @@ import socket
 #establecemos una funcion y variables 
 def listar_correo(user, passwd):
 
-    host = '192.168.0.24'
+    host = "192.168.0.24"
     port = 110
     ipv4 = socket.AF_INET
     tcp  = socket.SOCK_STREAM
