@@ -32,7 +32,7 @@ class redes:
         window.title('Redaccion Correo')
         window.eval('tk::PlaceWindow . center')
         
-        self.wind2=window
+        self.wind3=window
         
         frame1 = LabelFrame(window)
         frame1.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W)
@@ -116,10 +116,11 @@ class redes:
     
     def actualizarCorreo(self):
         num=1
-        correo=NULL
+        correos=NULL
+        print(listar_correo(self.mail,self.password).split('\n'))
         self.wind2.tree.delete(*self.wind2.tree.get_children())
         correos=listar_correo(self.mail,self.password).split('\n')
-        print(correos)
+        #print(correos)
         # print(correos)
         for correo in correos:
             # print(index)
