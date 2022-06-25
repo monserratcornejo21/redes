@@ -22,9 +22,7 @@ class redes:
     # password=''
     def __init__(self,window):  
         self.wind=window
-        self.login(self.wind)
-        # if(self.aux==2):
-        #     self.wind=window         
+        self.login(self.wind) 
     
     def RedaccionCorreo(self):
         window=Tk()
@@ -62,12 +60,14 @@ class redes:
     
     def enviarcorreo(self): 
         Mismtp(self.mail,self.To.get(),self.Subject.get(),self.Messaje.get())
-        
+        sleep(1)
+        self.wind3.destroy()
          
     def login(self,window):
         
         window.title('Iniciar Sesion')
         window.eval('tk::PlaceWindow . center')
+        window.resizable(0,0)
         frame = LabelFrame(window)
         frame.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
         Label(frame,text='Correo').grid(row = 1, column = 0 )
@@ -96,18 +96,20 @@ class redes:
         window.title('Gmailnt')
         window.resizable(0,0)
         frame = LabelFrame(window)
-        frame.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
-        Label(frame,text='Correo').grid(row = 1, column = 0 )
-        window.Delete = Entry(frame,width=35)
+        frame.grid(row = 0, column = 1, columnspan = 1, pady=5 , padx=(5,170) , sticky=W)
+        Label(frame,text='Eliminar').grid(row = 1, column = 0 )
+        window.Delete = Entry(frame,width=5)
         window.Delete.focus()
-        window.Delete.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        window.Delete.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W)
+        ttk.Button(text = 'Go', command = self.VerCorreo).grid(row = 0, column = 1, sticky = W ,  padx=(140,0) , pady=5)
 
         frame0 = LabelFrame(window)
-        frame0.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
-        Label(frame,text='Correo').grid(row = 1, column = 0 )
-        window.Examinar = Entry(frame,width=35)
-        window.MExaminar.focus()
-        window.Examinar.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+        frame0.grid(row = 1, column = 1, columnspan = 1 , pady=5 , padx=5 , sticky=W)
+        Label(frame0,text='Ver').grid(row = 1, column = 0 )
+        window.ReadMail = Entry(frame0,width=5)
+        window.ReadMail.focus()
+        window.ReadMail.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W)
+        ttk.Button(text = 'Go', command = self.EliminarCorreo).grid(row = 1, column = 1, sticky = W ,  padx=(120,0) , pady=5)
 
         window.eval('tk::PlaceWindow . center')
         frame = LabelFrame(window)
@@ -128,7 +130,11 @@ class redes:
         ttk.Button(text = 'Actualizar', command = self.actualizarCorreo).grid(row = 4, column = 0, sticky = W + E ,  padx=10 , pady=(0,15))
         ttk.Button(text = 'Redactar Correo', command = self.RedaccionCorreo).grid(row = 4, column = 1, sticky = W + E , padx=10 , pady=(0,15))
 
-    
+    def VerCorreo(self):
+        
+    def VerCorreo(self):
+        
+        
     def actualizarCorreo(self):
         num=1
         correos=NULL
