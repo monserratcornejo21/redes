@@ -95,6 +95,20 @@ class redes:
         window=Tk()
         window.title('Gmailnt')
         window.resizable(0,0)
+        frame = LabelFrame(window)
+        frame.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
+        Label(frame,text='Correo').grid(row = 1, column = 0 )
+        window.Delete = Entry(frame,width=35)
+        window.Delete.focus()
+        window.Delete.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+
+        frame0 = LabelFrame(window)
+        frame0.grid(row = 0, column = 0, columnspan = 2 , pady=5 , padx=5 , sticky=W+E)
+        Label(frame,text='Correo').grid(row = 1, column = 0 )
+        window.Examinar = Entry(frame,width=35)
+        window.MExaminar.focus()
+        window.Examinar.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W+E)
+
         window.eval('tk::PlaceWindow . center')
         frame = LabelFrame(window)
         frame.grid(row = 0, column = 0, columnspan = 2, pady = 20)
@@ -102,6 +116,7 @@ class redes:
         # self.name = Entry(frame)
         # self.name.focus()
         # self.name.grid(row = 1, column = 1)
+        
         window.message = Label(text = '', fg = 'red')
         window.message.grid(row = 3, column = 0, columnspan = 2, sticky = W + E)
         window.tree = ttk.Treeview(height = 10, columns = 2 )
