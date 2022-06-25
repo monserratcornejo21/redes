@@ -2,6 +2,7 @@
 from ast import Pass
 from asyncio.windows_events import NULL
 from cProfile import label
+from cgi import print_form
 from cgitb import text
 from cmath import e
 from operator import index
@@ -98,18 +99,18 @@ class redes:
         frame = LabelFrame(window)
         frame.grid(row = 0, column = 1, columnspan = 1, pady=5 , padx=(5,170) , sticky=W)
         Label(frame,text='Eliminar').grid(row = 1, column = 0 )
-        window.Delete = Entry(frame,width=5)
-        window.Delete.focus()
-        window.Delete.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W)
-        ttk.Button(text = 'Go', command = self.VerCorreo).grid(row = 0, column = 1, sticky = W ,  padx=(140,0) , pady=5)
+        self.Delete = Entry(frame,width=5)
+        self.Delete.focus()
+        self.Delete.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W)
+        ttk.Button(text = 'Go', command = self.EliminarCorreo).grid(row = 0, column = 1, sticky = W ,  padx=(140,0) , pady=5)
 
         frame0 = LabelFrame(window)
         frame0.grid(row = 1, column = 1, columnspan = 1 , pady=5 , padx=5 , sticky=W)
         Label(frame0,text='Ver').grid(row = 1, column = 0 )
-        window.ReadMail = Entry(frame0,width=5)
-        window.ReadMail.focus()
-        window.ReadMail.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W)
-        ttk.Button(text = 'Go', command = self.EliminarCorreo).grid(row = 1, column = 1, sticky = W ,  padx=(120,0) , pady=5)
+        self.ReadMail = Entry(frame0,width=5)
+        self.ReadMail.focus()
+        self.ReadMail.grid(row = 1, column = 1 , padx=15 , pady=5 , sticky=W)
+        ttk.Button(text = 'Go', command = self.VerCorreo).grid(row = 1, column = 1, sticky = W ,  padx=(120,0) , pady=5)
 
         window.eval('tk::PlaceWindow . center')
         frame = LabelFrame(window)
@@ -131,9 +132,11 @@ class redes:
         ttk.Button(text = 'Redactar Correo', command = self.RedaccionCorreo).grid(row = 4, column = 1, sticky = W + E , padx=10 , pady=(0,15))
 
     def VerCorreo(self):
+        resultado=operaciones('1',self.ReadMail.get(),self.mail,self.password)
+        print(resultado)
         
-    def VerCorreo(self):
-        
+    def EliminarCorreo(self):
+        operaciones('2',self.Delete.get(),self.mail,self.password)
         
     def actualizarCorreo(self):
         num=1
@@ -153,7 +156,7 @@ class redes:
                 except Exception as e:
                     print(e)
             num=2
-        
+            
     def d(self):
         self.tree.insert('', 0 , text='Eo',values=self.name.get())
         
