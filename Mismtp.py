@@ -41,4 +41,4 @@ def Mismtp(From,to,Subject,Message):
         enviar(conexion,'.')
         recibir(conexion)
         enviar(conexion,'quit')
-# Mismtp('dannarmand17@gmail.com','incoming@localhost','a','bbbbbb')
+Mismtp('dannarmand17@gmail.com','dannarmand17@gmail.com','a','bbbbbb')
